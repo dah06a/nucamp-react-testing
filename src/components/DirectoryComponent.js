@@ -3,6 +3,7 @@ import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } 
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import { Fade, Random } from 'react-animation-components';
 
 function RenderDirectoryItem({campsite}) {
     return (
@@ -18,13 +19,13 @@ function RenderDirectoryItem({campsite}) {
 }
 
 function Directory(props) {
-    const directory = props.campsites.campsites.map(campsite => {
-        return (
-            <div key={campsite.id} className="col-md-5 m-1">
+    const directory = <Random in duration={1000} className="row">
+        {props.campsites.campsites.map(campsite => (
+            <Fade key={campsite.id} className="col-md-5 m-1">
                 <RenderDirectoryItem campsite={campsite} />
-            </div>
-        );
-    });
+            </Fade>
+        ))}
+    </Random>
 
     if (props.campsites.isLoading) {
         return (
@@ -56,7 +57,7 @@ function Directory(props) {
                     </Breadcrumb>
                 </div>
             </div>
-            <div className="row">
+            <div className="container">
                 {directory}
             </div>
         </div>

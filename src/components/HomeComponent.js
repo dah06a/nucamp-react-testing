@@ -14,7 +14,7 @@ function RenderCard({item, isLoading, errMess}) {
     }
 
     return (
-        <FadeTransform in transformProps={{exitTransform: 'scale(0.5) translateY(50%)'}}>
+        <FadeTransform in transformProps={{exitTransform: 'scale(2) translateY(50%)'}}>
             <Card>
                 <CardImg src={baseUrl + item.image} alt={item.name} />
                 <CardBody>
