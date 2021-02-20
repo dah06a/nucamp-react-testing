@@ -31,6 +31,7 @@ function Home(props) {
         <div className="container">
             <div className="row">
                 <div className="col-md m-1">
+                    <h2 className="text-center">Campsite</h2>
                     <RenderCard
                     item={props.campsite}
                     isLoading={props.campsitesLoading}
@@ -38,6 +39,7 @@ function Home(props) {
                 />
                 </div>
                 <div className="col-md m-1">
+                    <h2 className="text-center">Promotion</h2>
                     <RenderCard
                         item={props.promotion}
                         isLoading={props.promotionLoading}
@@ -45,7 +47,12 @@ function Home(props) {
                     />
                 </div>
                 <div className="col-md m-1">
-                    <RenderCard item={props.partner} />
+                    <h2 className="text-center">Partners</h2>
+                    <RenderCard
+                        item={props.partner}
+                        isLoading={props.partnerLoading}
+                        errMess={props.partnerErrMess}
+                     />
                 </div>
             </div>
         </div>
